@@ -16,14 +16,14 @@ angular.module('angularjsexamApp')
       'AngularJS',
       'Karma'
     ];
-    //페이지가 로딩되었을 때 호출
+    //페이지가 로딩되었을 때 호출 (127.0.0.1, 로컬:172.16.1.253, 에뮬러이터로 테스트시 10.0.2.2변경 )
     $scope.$on('$viewContentLoaded', function() {
       $scope.requestUserList();
     });
     $scope.userList = [];
     $scope.requestUserList = function() {
       var dataPromise = Data.getData(
-        'http://127.0.0.1:52273/user');
+        'http://172.16.1.253:52273/user');
       dataPromise.then(function(results) {
         $scope.userList = results.data;
       },function(reason){},function(update){});
@@ -31,7 +31,7 @@ angular.module('angularjsexamApp')
 
     $scope.deleteUserInfo = function(id) {
       var dataPromise = Data.deleteData(
-        'http://127.0.0.1:52273/user/'+id, '');
+        'http://172.16.1.253:52273/user/'+id, '');
       dataPromise.then(function(requestUserListlts) {
         $scope.requestUserList();
       },function(reason){},function(update){});
@@ -39,7 +39,7 @@ angular.module('angularjsexamApp')
 
    $scope.modifyUserInfo = function(id,name,age) {
       var dataPromise = Data.modifyUserInfo(
-        'http://127.0.0.1:52273/user/'+id,
+        'http://172.16.1.253:52273/user/'+id,
          '&name='+name+'&age='+age);
       dataPromise.then(function(requestUserListlts) {
         $scope.requestUserList();
@@ -49,7 +49,7 @@ angular.module('angularjsexamApp')
     $scope.userInfo = {};
     $scope.getUserInfo = function(id) {
       var dataPromise = Data.getData(
-        'http://127.0.0.1.:52273/user/'+id);
+        'http://172.16.1.253:52273/user/'+id);
       dataPromise.then(function(results){
         $scope.userInfo = results.data;
       },function(reason){},function(update){});
