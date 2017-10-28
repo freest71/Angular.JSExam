@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name angularjsexamApp.controller:UserWithdrawCtrl
+ * @name angularjsexamApp.controller:UserDetailCtrl
  * @description
- * # UserWithdrawCtrl
+ * # UserDetailCtrl
  * Controller of the angularjsexamApp
  */
 angular.module('angularjsexamApp')

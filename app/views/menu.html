@@ -20,5 +20,18 @@
 				<a ui-sref="user-list" class="dropdown-toggle" data-toggle="dropdown">User List</a>
 			</li>
 		</ul>
+		<!-- login/logout -->
+		<div ng-controller="LoginCtrl">
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-hide="isUserSignedIn()">
+					<a href="#" ui-sref="login">Login</a>
+				</li>
+				<li ng-show="isUserSignedIn()">
+					<a href="#" ng-click="logout()">
+						[{{getUserId()}}] Logout
+					</a>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>
